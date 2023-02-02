@@ -1,3 +1,4 @@
+import { CardRepo } from "./components/CardRepo";
 import { Cover } from "./components/Cover"
 import { Header } from "./components/Header";
 import { GlobalStyle } from "./styles/global";
@@ -6,9 +7,10 @@ export function App() {
 
   return (
     <>
-      <GlobalStyle/>
+      <GlobalStyle />
       <Cover />
-      <Header/>
+      <Header />
+      <CardRepo />
     </>
   );
 };
