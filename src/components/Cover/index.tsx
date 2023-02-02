@@ -5,7 +5,7 @@ import logo from "../../assets/logo.svg";
 export function Cover() {
   return (
     <Container img={coverImg}>
-      <Content>
+      <Content justifyContent='center'>
         <img src={logo} />
       </Content>
     </Container>
