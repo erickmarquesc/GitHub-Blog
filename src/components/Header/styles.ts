@@ -2,13 +2,11 @@ import styled from "styled-components";
 
 export const HeaderBox = styled.div`
   gap: 32px;
-  color: #fff;
   width: 864px;
   display: flex;
   padding: 32px 40px;
   border-radius: 10px;
   background: #0B1B2B;
-  margin-top: -150px;
 
   .InfoConteiner{
     display: flex;

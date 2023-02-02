@@ -6,8 +6,8 @@ import imagem from "../../assets/logo.svg";
 
 export function Header() {
   return (
-    <Container>
-      <Content>
+    <Container variant="inHeader">
+      <Content justifyContent='center'>
         <HeaderBox>
           <img src={imagem} />
           <div className="InfoConteiner">
