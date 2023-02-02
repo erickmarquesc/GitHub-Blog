@@ -10,6 +10,7 @@ export const GlobalStyle = createGlobalStyle`
     background: #071422;
   };
   body, input, textarea  {
+    color: #fff;
     font-weight: 400;
     font-size: 1rem;
     line-height: 160%;
