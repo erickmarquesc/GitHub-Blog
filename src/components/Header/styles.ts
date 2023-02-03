@@ -8,6 +8,12 @@ export const HeaderBox = styled.div`
   border-radius: 10px;
   background: #0B1B2B;
 
+  img{
+    width: 148px;
+    height: 148px;
+    border-radius: 8px;
+  }
+
   .InfoConteiner{
     display: flex;
     flex-direction: column;

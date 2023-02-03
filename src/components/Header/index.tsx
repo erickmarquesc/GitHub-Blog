@@ -1,40 +1,50 @@
-import { IoPeople, IoBusiness, IoArrowRedoCircle } from "react-icons/io5";
+import { IoPeople, IoBusiness, IoArrowRedoCircle, IoLocationSharp } from "react-icons/io5";
+import { useContextSelector } from "use-context-selector";
 import { Container, Content } from "../Containers/styles";
+import { RepositoryContext } from "../../context";
 import { HeaderBox, IconsItem } from "./styles";
 import { GoMarkGithub } from "react-icons/go";
-import imagem from "../../assets/logo.svg";
 
 export function Header() {
+
+  const user = useContextSelector(RepositoryContext, (context) => {
+    return context.user
+  });
+
+  console.log(user)
+
   return (
     <Container variant="inHeader">
-      <Content justifyContent='center'>
+      <Content>
         <HeaderBox>
-          <img src={imagem} />
+          <img src={user.avatar_url} />
           <div className="InfoConteiner">
             <section>
-              <h1>Erick Maruqes Cabral</h1>
-              <a href="https://github.com/erickmarquesc/">
+              <h1>{user.name}</h1>
+              <a href={user.html_url} target={"_blank"}>
                 <section>
                   <strong>github</strong>
                   <IoArrowRedoCircle />
                 </section>
               </a>
             </section>
-            <text>Tristique volutpat pulvinar vel massa, pellentesque egestas. Eu viverra massa quam dignissim aenean malesuada suscipit. Nunc, volutpat pulvinar vel mass.</text>
+            <text>{user.bio}</text>
             <footer>
               <IconsItem>
                 <GoMarkGithub />
-                erickmarquesc
+                {user.login}
               </IconsItem>
 
               <IconsItem>
-                <IoBusiness />
-                erickmarquesc
+                {user.company ? <IoBusiness />
+                  : <IoLocationSharp />}
+                {user.company ? user.company
+                  : user.location}
               </IconsItem>
 
               <IconsItem>
                 <IoPeople />
-                erickmarquesc
+                {user.followers} seguidores
               </IconsItem>
 
             </footer>
