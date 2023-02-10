@@ -1,8 +1,8 @@
-import { useState } from "react";
-import { useContextSelector } from "use-context-selector";
-import { ModalContext } from "../../context/ModalContext";
 import { RepositoryContext } from "../../context/RepositoryContext";
 import { Container, Content, ModalContainer } from "./styles";
+import { useContextSelector } from "use-context-selector";
+import { ModalContext } from "../../context/ModalContext";
+import { useState } from "react";
 
 export function Modal() {
 

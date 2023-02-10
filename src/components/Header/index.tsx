@@ -1,11 +1,10 @@
 import { IoPeople, IoBusiness, IoArrowRedoCircle, IoLocationSharp } from "react-icons/io5";
+import { RepositoryContext } from "../../context/RepositoryContext";
 import { useContextSelector } from "use-context-selector";
 import { Container, Content } from "../Containers/styles";
-import { RepositoryContext } from "../../context/RepositoryContext";
+import { ButtonModal } from "../Modal/ButtonModal";
 import { HeaderBox, IconsItem } from "./styles";
 import { GoMarkGithub } from "react-icons/go";
-import { ButtonModal } from "../Modal/ButtonModal";
-import { Modal } from "../Modal/Modal";
 
 export function Header() {
 

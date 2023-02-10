@@ -1,10 +1,9 @@
+import { RepositoryContext } from "../../context/RepositoryContext";
 import { Container, Content } from "../Containers/styles";
 import { useContextSelector } from "use-context-selector";
-import { RepositoryContext } from "../../context/RepositoryContext";
 import { formatDistanceToNow } from 'date-fns';
 import { CardRepoContent } from "./styles";
 import ptBR from 'date-fns/locale/pt-BR';
-import { Modal } from "../Modal/Modal";
 
 export function CardRepo() {
 

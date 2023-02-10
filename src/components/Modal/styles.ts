@@ -8,14 +8,12 @@ export const Container = styled.div<IModalContainerProps>`
   height: 296px;
   padding: 2rem 0 2rem;
 
-  
   ${(props) => props.display === 'none' ? css`
-  display: none;
-  transition: display 10s;
+    display: none;
+    transition: display 10s;
   `: props.display === 'flex' && css`
-        display: flex;
-  transition: display 10s;
-
+    display: flex;
+    transition: display 10s;
   `}
 `;
 
@@ -34,11 +32,11 @@ export const ModalContainer = styled.div`
   gap: 32px;
   width: 864px;
   display: flex;
-  flex-direction: column;
+  position: initial;
   padding: 32px 40px;
   border-radius: 10px;
   background: #0B1B2B;
-  position: initial;
+  flex-direction: column;
 
   h1{
     font-size: 1.5rem;
@@ -50,26 +48,26 @@ export const ModalContainer = styled.div`
     input{
       width: 70%;
       padding: 12px;
-      border-radius: 6px;
       color: #0B1B2B;
+      border-radius: 6px;
     }
   }
 
   .sectionButtons{
-    display: flex;
     gap: 12px;
+    display: flex;
     
     button{
-      cursor: pointer;
-      padding: 12px;
-      border-radius: 6px;
       width: 6rem;
-      font-weight: 400;
-      transition: 1s;
-      font: 700 1rem 'Nunito', sans-serif;
-      background: transparent;
       color: white;
+      padding: 12px;
+      transition: 1s;
+      cursor: pointer;
+      font-weight: 400;
+      border-radius: 6px;
       border: solid 1px #fff;
+      background: transparent;
+      font: 700 1rem 'Nunito', sans-serif;
 
       :hover{
         background: red;
@@ -87,13 +85,13 @@ export const ModalContainer = styled.div`
 
 export const ButtonUserModal = styled.button`
   padding: 5px;
-  border: solid 1px #3294F8;
-  border-radius: 6px;
-  background: transparent;
   color: white;
-  font-size: 0.75rem;
   color: #3294F8;
   cursor: pointer;
+  border-radius: 6px;
+  font-size: 0.75rem;
+  background: transparent;
+  border: solid 1px #3294F8;
 
   transition: filter 1s;
 
