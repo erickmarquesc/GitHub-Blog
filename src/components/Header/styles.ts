@@ -7,7 +7,6 @@ export const HeaderBox = styled.div`
   padding: 32px 40px;
   border-radius: 10px;
   background: #0B1B2B;
-
   img{
     width: 148px;
     height: 148px;
@@ -25,6 +24,8 @@ export const HeaderBox = styled.div`
     margin-bottom: 8px;
     align-items: center;
     justify-content: space-between;
+
+    transition: color 1s;
 
     a{
       color: #3294F8;

@@ -1,17 +1,22 @@
 import { CardRepo } from "./components/CardRepo";
 import { Cover } from "./components/Cover"
 import { Header } from "./components/Header";
-import { RepositoryProvider } from "./context";
+import { Modal } from "./components/Modal/Modal";
+import { ModalProvider } from "./context/ModalContext";
+import { RepositoryProvider } from "./context/RepositoryContext";
 import { GlobalStyle } from "./styles/global";
 
 export function App() {
 
   return (
     <RepositoryProvider>
-      <GlobalStyle />
-      <Cover />
-      <Header />
-      <CardRepo />
+      <ModalProvider>
+        <GlobalStyle />
+        <Cover />
+        <Header />
+        <Modal />
+        <CardRepo />
+      </ModalProvider>
     </RepositoryProvider>
   );
 };

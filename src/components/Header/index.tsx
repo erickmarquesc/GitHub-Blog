@@ -1,9 +1,11 @@
 import { IoPeople, IoBusiness, IoArrowRedoCircle, IoLocationSharp } from "react-icons/io5";
 import { useContextSelector } from "use-context-selector";
 import { Container, Content } from "../Containers/styles";
-import { RepositoryContext } from "../../context";
+import { RepositoryContext } from "../../context/RepositoryContext";
 import { HeaderBox, IconsItem } from "./styles";
 import { GoMarkGithub } from "react-icons/go";
+import { ButtonModal } from "../Modal/ButtonModal";
+import { Modal } from "../Modal/Modal";
 
 export function Header() {
 
@@ -11,45 +13,52 @@ export function Header() {
     return context.user
   });
 
-  console.log(user)
-
   return (
     <Container variant="inHeader">
       <Content>
-        <HeaderBox>
-          <img src={user.avatar_url} />
-          <div className="InfoConteiner">
-            <section>
-              <h1>{user.name}</h1>
-              <a href={user.html_url} target={"_blank"}>
-                <section>
-                  <strong>github</strong>
-                  <IoArrowRedoCircle />
-                </section>
-              </a>
-            </section>
-            <text>{user.bio}</text>
-            <footer>
-              <IconsItem>
-                <GoMarkGithub />
-                {user.login}
-              </IconsItem>
+        <>
 
-              <IconsItem>
-                {user.company ? <IoBusiness />
-                  : <IoLocationSharp />}
-                {user.company ? user.company
-                  : user.location}
-              </IconsItem>
+          <HeaderBox>
+            <img src={user.avatar_url} />
+            <div className="InfoConteiner">
+              <section>
+                <h1>{user.name}</h1>
+                <a href={user.html_url} target={"_blank"}>
+                  <section>
+                    <strong>github</strong>
+                    <IoArrowRedoCircle />
+                  </section>
+                </a>
+              </section>
+              <text>{user.bio}</text>
+              <footer>
+                <IconsItem>
+                  <GoMarkGithub />
+                  {user.login}
+                </IconsItem>
 
-              <IconsItem>
-                <IoPeople />
-                {user.followers} seguidores
-              </IconsItem>
+                <IconsItem>
+                  {user.company ? <IoBusiness />
+                    : <IoLocationSharp />}
+                  {user.company ? user.company
+                    : user.location}
+                </IconsItem>
 
-            </footer>
-          </div>
-        </HeaderBox>
+                <IconsItem>
+                  <IoPeople />
+                  {user.followers} seguidores
+                </IconsItem>
+
+                <IconsItem>
+                  <ButtonModal />
+                </IconsItem>
+
+              </footer>
+            </div>
+          </HeaderBox>
+          
+
+        </>
       </Content>
     </Container>
   );
