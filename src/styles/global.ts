@@ -11,9 +11,7 @@ export const GlobalStyle = createGlobalStyle`
   };
   body, input, textarea  {
     color: #fff;
-    font-weight: 400;
-    font-size: 1rem;
+    font: 400 1rem 'Nunito', sans-serif;
     line-height: 160%;
-    font-family: 'Nunito', sans-serif;
   };
 `
