@@ -1,44 +1,33 @@
-import { createContext, useContextSelector } from "use-context-selector";
-import { RepositoryContext } from "./RepositoryContext";
-import { ReactNode, useEffect, useState } from "react";
+import { useEffect, useState, createContext } from "react";
+import { IModalContextProps, IModalProviderProps } from "./interfaces";
+import { useRepository } from "./useRepository";
 
-export interface IModalContextType {
-  handleClouseModal: () => void;
-  handleOpenModal: () => void;
-  stateModal: string;
-};
-
-export interface IModalProviderProps {
-  children: ReactNode;
-};
-
-export const ModalContext = createContext({} as IModalContextType);
+export const ModalContext = createContext<IModalContextProps>({} as IModalContextProps);
 
 export function ModalProvider({ children }: IModalProviderProps) {
 
-  const user = useContextSelector(RepositoryContext, (context) => {
-    return context.user
-  });
+  const { user } = useRepository();
 
-  useEffect(() => { setStateModal("none") }, [user])
+  useEffect(() => { setStateModal("none") }, [user]);
 
   const [stateModal, setStateModal] = useState("none");
 
   function handleOpenModal() {
-    setStateModal("flex")
-  }
+    setStateModal("flex");
+  };
 
   function handleClouseModal() {
-    setStateModal("none")
-  }
+    setStateModal("none");
+  };
 
   return (
     <ModalContext.Provider value={{
       handleOpenModal,
       handleClouseModal,
-      stateModal
+      stateModal,
     }}>
       {children}
     </ModalContext.Provider>
   );
 };
+

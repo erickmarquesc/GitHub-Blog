@@ -1,46 +1,14 @@
-import { ReactNode, useEffect, useState } from "react";
-import { createContext } from "use-context-selector";
+import { IRepositoryContextProps, IRepositoryProviderProps, IUser } from "./interfaces";
+import { useEffect, useState, createContext } from "react";
 
-export interface IRepositories {
-  id: number;
-  name: string;
-  description: string;
-  created_at: string;
-  language: string;
-  topics: [];
-  html_url: string
-}
-
-export interface IUser {
-  avatar_url: string;
-  bio: string;
-  location: string;
-  login: string;
-  name: string;
-  public_repos: number;
-  company: string;
-  followers: number;
-  html_url: string
-}
-
-export interface IRepositoryContextType {
-  repositories: IRepositories[];
-  handleSearchRepository: (repositoryName: string) => void;
-  user: IUser;
-  handleConfigUserName: (userName: string) => void;
-};
-
-export interface IRepositoryProviderProps {
-  children: ReactNode;
-};
-
-export const RepositoryContext = createContext({} as IRepositoryContextType);
+export const RepositoryContext = createContext<IRepositoryContextProps>({} as IRepositoryContextProps);
 
 export function RepositoryProvider({ children }: IRepositoryProviderProps) {
 
   const [repositories, setRepositories] = useState([]);
-  const [user, setUser] = useState({} as IUser)
-  const [userReferencie, setUserReferencie] = useState('erickmarquesc')
+  const [user, setUser] = useState({} as IUser);
+
+  const [userReferencie, setUserReferencie] = useState(localStorage.getItem("userName") || 'erickmarquesc');
 
   useEffect(() => {
     fetch(`https://api.github.com/users/${userReferencie}/repos`)
@@ -49,6 +17,8 @@ export function RepositoryProvider({ children }: IRepositoryProviderProps) {
   }, [userReferencie]);
 
   useEffect(() => {
+    localStorage.setItem("userName", userReferencie);
+
     fetch(`https://api.github.com/users/${userReferencie}`)
       .then((response) => response.json())
       .then((data) => setUser(data))
@@ -56,12 +26,11 @@ export function RepositoryProvider({ children }: IRepositoryProviderProps) {
 
   function handleConfigUserName(userName: string) {
     setUserReferencie(userName);
-    
-  }
+  };
 
   const handleSearchRepository = (repositoryName: string) => {
 
-    fetch(`https://api.github.com/search/repositories?q="${repositoryName}"+in:name+user:erickmarquesc`)
+    fetch(`https://api.github.com/search/repositories?q="${repositoryName}"+in:name+user:${userReferencie}`)
       .then((response) => response.json())
       .then((data) => {
         setRepositories(data.items)
@@ -70,10 +39,10 @@ export function RepositoryProvider({ children }: IRepositoryProviderProps) {
 
   return (
     <RepositoryContext.Provider value={{
-      repositories,
-      handleSearchRepository,
       user,
-      handleConfigUserName
+      repositories,
+      handleConfigUserName,
+      handleSearchRepository,
     }}>
       {children}
     </RepositoryContext.Provider>
