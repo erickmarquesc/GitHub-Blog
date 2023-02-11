@@ -78,6 +78,12 @@ export const ModalContainer = styled.div`
         background: green;
         border-color: green;
       }
+
+      :disabled{
+        cursor: not-allowed;
+        background: #0B1B2B;
+      }
+      
     }
   }
 
