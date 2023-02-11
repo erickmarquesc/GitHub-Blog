@@ -1,18 +1,14 @@
-import { useContextSelector } from "use-context-selector";
-import { ModalContext } from "../../context/ModalContext";
+import { useModal } from "../../context/useModal";
 import { ButtonUserModal } from "./styles";
 
 export function ButtonModal() {
-
-  const modalState = useContextSelector(ModalContext, (context) => {
-    return context.handleOpenModal
-  });
+  const { handleOpenModal} = useModal();
   
   return (
     <>
-      <ButtonUserModal onClick={modalState}>
+      <ButtonUserModal onClick={handleOpenModal}>
         Trocar usuário
       </ButtonUserModal>
     </>
-  )
-}
+  );
+};
