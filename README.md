@@ -45,4 +45,4 @@ Esse projeto foi desenvolvido com as seguintes tecnologias:
     
 ## 🔖 Layout
 
-Você pode visualizar o layout do projeto através [DESSE LINK](https://www.figma.com/file/IwwtoYQUFWgb6wtK0NJvTe/Ignite-Feed?node-id=26%3A12&t=Q3gectzOaVmh2exZ-1). É necessário ter conta no [Figma](https://figma.com) para acessá-lo.
+Você pode visualizar o layout do projeto através [DESSE LINK](https://www.figma.com/file/1VuEU0cr8BhkgoHGcVzCrk/GitHub-Blog-(Community)?node-id=11%3A599&t=ndFNpi6ZYERzbsUZ-1). É necessário ter conta no [Figma](https://figma.com) para acessá-lo.
