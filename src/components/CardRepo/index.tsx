@@ -1,15 +1,11 @@
-import { RepositoryContext } from "../../context/RepositoryContext";
+import { useRepository } from "../../context/useRepository";
 import { Container, Content } from "../Containers/styles";
-import { useContextSelector } from "use-context-selector";
 import { formatDistanceToNow } from 'date-fns';
 import { CardRepoContent } from "./styles";
 import ptBR from 'date-fns/locale/pt-BR';
 
 export function CardRepo() {
-
-  const repositories = useContextSelector(RepositoryContext, (context) => {
-    return context.repositories
-  });
+  const { repositories} = useRepository();
 
   function formatCreatedAt(createdAt: string) {
     const createdAtFormat = new Date(createdAt);
@@ -25,7 +21,6 @@ export function CardRepo() {
   return (
     <Container>
       <Content>
-        
         {repositories.map((repo) => {
           return (
             <CardRepoContent key={repo.id}>
